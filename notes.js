@@ -16,7 +16,7 @@ Aaron.then((result => { //do NOT use .then
 */
 
 //REST API 
-const URL = `https://api.quotable.io/randoms`; //${pokemon}
+const URL = `https://api.quotable.io/random`; //${pokemon}
 
 async function getData(URL){
     try {
@@ -27,8 +27,8 @@ async function getData(URL){
         console.log(response);
         const data = await response.json();
         console.log(data);
-        document.querySelector("h1").textContent = data.content; //shift alt down
-        document.querySelector("h2").textContent = data.content;
+        document.querySelector("h1").textContent = data.content; //shift alt down to copy 
+        document.querySelector("h2").textContent = data.author;
     } catch (error) {
         document.querySelector("h1").textContent = error;
     }
