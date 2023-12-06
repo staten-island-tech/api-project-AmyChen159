@@ -35,3 +35,6 @@ async function getData(URL){
 }
 getData(URL);
 
+// https://genshin.dev/ 
+// https://github.com/genshindev/api/tree/mistress/assets/data
+// https://api.genshin.dev/ 
