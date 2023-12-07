@@ -16,6 +16,9 @@ Aaron.then((result => { //do NOT use .then
 */
 
 //REST API 
+
+import '../styles/style.css'
+
 const URL = `https://api.quotable.io/random`; //${pokemon}
 
 async function getData(URL){
