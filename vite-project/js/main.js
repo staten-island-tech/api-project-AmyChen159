@@ -17,6 +17,7 @@ async function getData(URL){
           `beforeend`,
           `<h2>${data.artifacts}</h2>`
         ) */
+        document.querySelector("h2").innerText = data;
     } catch (error) {
         document.querySelector("h1").textContent = error;
     }
