@@ -10,16 +10,19 @@ async function getData(URL){
         }
         console.log(response);
         const data = await response.json();
-        console.log(data);
+        console.log(data); //[#]
+        for(let i = 0; i < data.length; i++){
+          console.log(data[i]);
+      }
         //document.querySelector("h1").textContent = data.content; //shift alt down to copy 
         //document.querySelector("h2").textContent = data.author;
-        /* document.querySelector('#container').insertAdjacentHTML(
+        document.querySelector('#container').insertAdjacentHTML(
           `beforeend`,
-          `<h2>${data.artifacts}</h2>`
-        ) */
-        document.querySelector("h2").innerText = data;
+          `<h2>${data}</h2>`
+        ) 
     } catch (error) {
-        document.querySelector("h1").textContent = error;
+        console.log(error)
+        //document.querySelector("h1").textContent = error;
     }
 }
 getData(URL);
