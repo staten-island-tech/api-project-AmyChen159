@@ -1,8 +1,8 @@
 import '../styles/style.css'
 
-const URL = `https://api.genshin.dev/artifacts`; 
+/* const URL = `https://api.genshin.dev/artifacts`; 
 
-async function getData(URL){
+ async function getData(URL){
     try {
         const response = await fetch(URL); 
         if(response.status !=200){
@@ -47,4 +47,25 @@ async function getArtifact(artifact){
   })
 } 
 
-getArtifact(artifact)
+getArtifact(artifact) */
+
+const URL = `https://api.genshin.dev/artifacts/adventurer`; 
+
+async function getData(URL) {
+  try {
+    const response = await fetch(URL);
+    if (response.status != 200) {
+      throw new Error(response.statusText);
+    }
+    console.log(response);
+    const data = await response.json();
+    console.log(data);
+    document
+      .querySelector("#container")
+      .insertAdjacentHTML(`beforeend`,
+      `<h2>${data.name}</h2>`);
+  } catch (error) {
+    console.log(error);
+  }
+}
+getData(URL);
