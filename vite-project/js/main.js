@@ -49,6 +49,7 @@ async function getArtifact(artifact){
 
 getArtifact(artifact) */
 
+//sample?
 const URL = `https://api.genshin.dev/artifacts/adventurer`; 
 
 async function getData(URL) {
@@ -63,7 +64,14 @@ async function getData(URL) {
     document
       .querySelector("#container")
       .insertAdjacentHTML(`beforeend`,
-      `<h2>${data.name}</h2>`);
+      `<h2>${data.name}</h2>
+      <h3>${data.max_rarity}</h3>
+      <img id="icon" src="https://api.genshin.dev/artifacts/adventurer/flower-of-life"/>
+      <img src="https://api.genshin.dev/artifacts/adventurer/plume-of-death"/>
+      <img src="https://api.genshin.dev/artifacts/adventurer/sands-of-eon"/>
+      <img src="https://api.genshin.dev/artifacts/adventurer/goblet-of-eonothem"/>
+      <img src="https://api.genshin.dev/artifacts/adventurer/circlet-of-logos"/>
+      `);
   } catch (error) {
     console.log(error);
   }
