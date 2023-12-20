@@ -61,19 +61,26 @@ async function getData(URL) {
     console.log(response);
     const data = await response.json();
     console.log(data);
-    document
-      .querySelector("#container")
-      .insertAdjacentHTML(`beforeend`,
-      `<h2>${data.name}</h2>
-      <h3>${data.max_rarity}</h3>
+    document.querySelector("#container").insertAdjacentHTML(`beforeend`,
+      `<div> class="gallery"
+      <h2>${data.name}</h2>
+      <h3>Max Rarity: ${data.max_rarity} Star</h3>
       <img id="icon" src="https://api.genshin.dev/artifacts/adventurer/flower-of-life"/>
       <img src="https://api.genshin.dev/artifacts/adventurer/plume-of-death"/>
       <img src="https://api.genshin.dev/artifacts/adventurer/sands-of-eon"/>
       <img src="https://api.genshin.dev/artifacts/adventurer/goblet-of-eonothem"/>
       <img src="https://api.genshin.dev/artifacts/adventurer/circlet-of-logos"/>
-      `);
+      </div>`);
   } catch (error) {
     console.log(error);
   }
 }
 getData(URL);
+
+function clear(){
+  document.querySelectorAll('.gallery').forEach((el) => el.remove())
+}
+
+DOMselectors.img.addEventListener("click", function(){
+  
+})
