@@ -1,4 +1,5 @@
-import '../styles/style.css'
+import '../styles/style.css';
+//import {DOMselectors} from './dom'
 
 /* const URL = `https://api.genshin.dev/artifacts`; 
 
@@ -64,7 +65,8 @@ async function getData(URL) {
     document
       .querySelector("#container")
       .insertAdjacentHTML(`beforeend`,
-      `<h2>${data.name}</h2>
+      `<div class="gallery">
+      <h2>${data.name}</h2>
       <h3>Max Rarity: ${data.max_rarity} Star</h3>
       <h3>2-Piece Set: ${data['2-piece_bonus']}</h3>
       <h3>4-Piece Set: ${data['4-piece_bonus']}</h3>
