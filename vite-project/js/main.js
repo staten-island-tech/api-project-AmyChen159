@@ -72,9 +72,17 @@ async function getData(URL) {
       <img src="https://api.genshin.dev/artifacts/adventurer/sands-of-eon"/>
       <img src="https://api.genshin.dev/artifacts/adventurer/goblet-of-eonothem"/>
       <img src="https://api.genshin.dev/artifacts/adventurer/circlet-of-logos"/>
-      `);
+      </div>`);
   } catch (error) {
     console.log(error);
   }
 }
 getData(URL);
+
+function clear(){
+  document.querySelectorAll('.gallery').forEach((el) => el.remove())
+}
+
+DOMselectors.img.addEventListener("click", function(){
+  
+})
