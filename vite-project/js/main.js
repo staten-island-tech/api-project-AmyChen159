@@ -65,8 +65,9 @@ async function getData(URL) {
       .querySelector("#container")
       .insertAdjacentHTML(`beforeend`,
       `<h2>${data.name}</h2>
-      <h3>${data.max_rarity}</h3>
-      <h3>${data['2-piece_bonus']}</h3>
+      <h3>Max Rarity: ${data.max_rarity} Star</h3>
+      <h3>2-Piece Set: ${data['2-piece_bonus']}</h3>
+      <h3>4-Piece Set: ${data['4-piece_bonus']}</h3>
       <img id="icon" src="https://api.genshin.dev/artifacts/adventurer/flower-of-life"/>
       <img src="https://api.genshin.dev/artifacts/adventurer/plume-of-death"/>
       <img src="https://api.genshin.dev/artifacts/adventurer/sands-of-eon"/>
