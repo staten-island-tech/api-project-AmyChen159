@@ -85,5 +85,5 @@ function clear(){
 }
 
 DOMselectors.img.addEventListener("click", function(){
-  
+  clear()
 })

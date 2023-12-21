@@ -1,4 +1,4 @@
 const DOMselectors = {
-    img:document.getElementById("icon"),
+    img: document.getElementById("icon"),
     gallery
 }
