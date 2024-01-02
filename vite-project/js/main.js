@@ -51,6 +51,7 @@ async function getArtifact(artifact){
 getArtifact(artifact) */
 
 //sample?
+
 const URL = `https://api.genshin.dev/artifacts/adventurer`; 
 
 async function getData(URL) {
@@ -82,6 +83,7 @@ async function getData(URL) {
 }
 getData(URL);
 
+//:(
 function clear(){
   document.querySelectorAll('.gallery').forEach((el) => el.remove())
 }
@@ -89,3 +91,36 @@ function clear(){
 DOMselectors.img.addEventListener("click", function(){
   clear()
 })
+
+//make this happen for each of the objetcts given from the array from https://api.genshin.dev/artifacts
+const URLbase = `https://api.genshin.dev/artifacts/${artfiactname}`;
+
+
+async function getData(URL) {
+  try {
+    const response = await fetch(URL);
+    if (response.status != 200) {
+      throw new Error(response.statusText);
+    }
+    console.log(response);
+    const data = await response.json();
+    console.log(data);
+    document
+      .querySelector("#container")
+      .insertAdjacentHTML(`beforeend`,
+      `<div class="gallery">
+      <h2>${data.name}</h2>
+      <h3>Max Rarity: ${data.max_rarity} Star</h3>
+      <h3>2-Piece Set: ${data['2-piece_bonus']}</h3>
+      <h3>4-Piece Set: ${data['4-piece_bonus']}</h3>
+      <img id="icon" src="https://api.genshin.dev/artifacts/${artfiactname}/flower-of-life"/>
+      <img src="https://api.genshin.dev/artifacts/${artfiactname}/plume-of-death"/>
+      <img src="https://api.genshin.dev/artifacts/${artfiactname}/sands-of-eon"/>
+      <img src="https://api.genshin.dev/artifacts/${artfiactname}/goblet-of-eonothem"/>
+      <img src="https://api.genshin.dev/artifacts/${artfiactname}/circlet-of-logos"/>
+      </div>`);
+  } catch (error) {
+    console.log(error);
+  }
+}
+getData(URL);
