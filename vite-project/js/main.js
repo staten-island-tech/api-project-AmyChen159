@@ -114,10 +114,17 @@ const URL = `https://api.genshin.dev/artifacts`;
 }
 getData(URL);
 
-function newLink(){
+function newURL() {
+  let URL = `https://api.genshin.dev/${DOMSelectors.input.value.toLowerCase()}`
+  console.log(URL);
+  //inject(URL, URL1)
+}
+
+
+/* function newLink(){
   data.forEach(name => {`https://api.genshin.dev/artifacts/${name.data}`})
 }
 
-newLink(data);
+newLink(data); */
 
 
