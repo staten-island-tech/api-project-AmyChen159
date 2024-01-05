@@ -52,7 +52,7 @@ getArtifact(artifact) */
 
 //sample?
 
-/* const URL = `https://api.genshin.dev/artifacts/adventurer`; 
+const URL = `https://api.genshin.dev/artifacts/adventurer`; 
 
 async function getData(URL) {
   try {
@@ -81,7 +81,7 @@ async function getData(URL) {
     console.log(error);
   }
 }
-getData(URL); */
+getData(URL); 
 
 /* :(
 function clear(){
@@ -97,7 +97,7 @@ DOMselectors.img.addEventListener("click", function(){
 //do that for images and pretty the card
 //add search function 
 
-const URL = `https://api.genshin.dev/artifacts`; 
+/* const URL = `https://api.genshin.dev/artifacts`; 
 
  async function getData(){
     try {
@@ -112,14 +112,11 @@ const URL = `https://api.genshin.dev/artifacts`;
         console.log(error)
     }
 }
-getData(URL);
+getData(URL); 
 
-function newURL() {
-  let URL = `https://api.genshin.dev/${DOMSelectors.input.value.toLowerCase()}`
-  console.log(URL);
-  //inject(URL, URL1)
-}
-
+function newURL(URL, artifactName){
+  const seperator = URL.endsWith('/') ? '' : '/';
+} */
 
 /* function newLink(){
   data.forEach(name => {`https://api.genshin.dev/artifacts/${name.data}`})
