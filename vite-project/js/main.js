@@ -24,43 +24,56 @@ import {DOMselectors} from './dom'
     }
 }
 getData(URL);
-
-
-//sample?
-
-const URL = `https://api.genshin.dev/artifacts/adventurer`; 
-
-async function getData(URL) {
-  try {
-    const response = await fetch(URL);
-    if (response.status != 200) {
-      throw new Error(response.statusText);
-    }
-    console.log(response);
-    const data = await response.json();
-    console.log(data);
-    document
-      .querySelector("#container")
-      .insertAdjacentHTML(`beforeend`,
-      `<div class="gallery">
-      <h2>${data.name}</h2>
-      <h3>Max Rarity: ${data.max_rarity} Star</h3>
-      <h3>2-Piece Set: ${data['2-piece_bonus']}</h3>
-      <h3>4-Piece Set: ${data['4-piece_bonus']}</h3>
-      <img id="icon" src="https://api.genshin.dev/artifacts/adventurer/flower-of-life"/>
-      <img src="https://api.genshin.dev/artifacts/adventurer/plume-of-death"/>
-      <img src="https://api.genshin.dev/artifacts/adventurer/sands-of-eon"/>
-      <img src="https://api.genshin.dev/artifacts/adventurer/goblet-of-eonothem"/>
-      <img src="https://api.genshin.dev/artifacts/adventurer/circlet-of-logos"/>
-      </div>`);
-  } catch (error) {
-    console.log(error);
-  }
-}
-getData(URL); */
+*/
 
 const URLs = [
   'https://api.genshin.dev/artifacts/adventurer',
+  'https://api.genshin.dev/artifacts/archaic-petra',
+  'https://api.genshin.dev/artifacts/berserker',
+  'https://api.genshin.dev/artifacts/blizzard-strayer',
+  'https://api.genshin.dev/artifacts/bloodstained-chivalry',
+  'https://api.genshin.dev/artifacts/brave-heart',
+  'https://api.genshin.dev/artifacts/crimson-witch-of-flames',
+  'https://api.genshin.dev/artifacts/deepwood-memories',
+  'https://api.genshin.dev/artifacts/defender-s-will',
+  'https://api.genshin.dev/artifacts/desert-pavilion-chronicle',
+  'https://api.genshin.dev/artifacts/echoes-of-an-offering',
+  'https://api.genshin.dev/artifacts/emblem-of-severed-fate',
+  'https://api.genshin.dev/artifacts/flower-of-paradise-lost',
+  'https://api.genshin.dev/artifacts/gambler',
+  'https://api.genshin.dev/artifacts/gilded-dreams',
+  'https://api.genshin.dev/artifacts/glacier-and-snowfield',
+  'https://api.genshin.dev/artifacts/gladiator-s-finale',
+  'https://api.genshin.dev/artifacts/heart-of-depth',
+  'https://api.genshin.dev/artifacts/husk-of-opulent-dreams',
+  'https://api.genshin.dev/artifacts/instructor',
+  'https://api.genshin.dev/artifacts/lavawalker',
+  'https://api.genshin.dev/artifacts/lucky-dog',
+  'https://api.genshin.dev/artifacts/maiden-beloved',
+  'https://api.genshin.dev/artifacts/martial-artist',
+  'https://api.genshin.dev/artifacts/noblesse-oblige',
+  'https://api.genshin.dev/artifacts/nymph-s-dream',
+  'https://api.genshin.dev/artifacts/ocean-hued-clam',
+  'https://api.genshin.dev/artifacts/pale-flame',
+  'https://api.genshin.dev/artifacts/prayers-for-destiny',
+  'https://api.genshin.dev/artifacts/prayers-for-illumination',
+  'https://api.genshin.dev/artifacts/prayers-for-wisdom',
+  'https://api.genshin.dev/artifacts/prayers-to-springtime',
+  'https://api.genshin.dev/artifacts/prayers-to-the-firmament',
+  'https://api.genshin.dev/artifacts/resolution-of-sojourner',
+  'https://api.genshin.dev/artifacts/retracing-bolide',
+  'https://api.genshin.dev/artifacts/scholar',
+  'https://api.genshin.dev/artifacts/shimenawa-s-reminiscence',
+  'https://api.genshin.dev/artifacts/tenacity-of-the-millelith',
+  'https://api.genshin.dev/artifacts/the-exile',
+  'https://api.genshin.dev/artifacts/thundering-fury',
+  'https://api.genshin.dev/artifacts/thundersoother',
+  'https://api.genshin.dev/artifacts/tiny-miracle',
+  'https://api.genshin.dev/artifacts/traveling-doctor',
+  'https://api.genshin.dev/artifacts/vermillion-hereafter',
+  'https://api.genshin.dev/artifacts/viridescent-venerer',
+  'https://api.genshin.dev/artifacts/viurukasha-s-glow',
+  'https://api.genshin.dev/artifacts/wanderer-s-troupe',
 ];
 
 async function getData(url) {
@@ -69,9 +82,8 @@ async function getData(url) {
     if (response.status !== 200) {
       throw new Error(response.statusText);
     }
-
     const data = await response.json();
-
+    
     document
       .querySelector("#container")
       .insertAdjacentHTML('beforeend', `
@@ -92,7 +104,6 @@ async function getData(url) {
   }
 }
 
-// Loop through each URL in the array
 for (const url of URLs) {
   getData(url);
 }
@@ -107,6 +118,7 @@ DOMselectors.img.addEventListener("click", function(){
   clear()
 }) */
 
+//shittery
 //https://api.genshin.dev/artifacts --> get a list of artifact names 
 //run a foreach(?) for each artifact name into https://api.genshin.dev/artifacts/${artifactname}
 //do that for images and pretty the card
