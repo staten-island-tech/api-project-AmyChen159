@@ -25,30 +25,6 @@ import {DOMselectors} from './dom'
 }
 getData(URL);
 
-const artifact = `https://api.genshin.dev/artifacts${artifactName}`
-const artifactName = data[i]
-
-async function getArtifact(artifact){
-  try {
-    const response = await fetch(artifact); 
-    if(response.status !=200){
-        throw new Error(response.statusText);
-    }
-    console.log(response);
-    const artifactInfo = await response.json();
-    console.log(artifactInfo); 
-} catch (error) {
-    console.log(error)
-}
-  data.forEach(card => {
-    `beforeend`,
-      `<div class="gallery">
-        <h2 id="">${card.name}</h2> 
-      </div>`
-  })
-} 
-
-getArtifact(artifact) */
 
 //sample?
 
@@ -81,7 +57,46 @@ async function getData(URL) {
     console.log(error);
   }
 }
-getData(URL); 
+getData(URL); */
+
+const URLs = [
+  'https://api.genshin.dev/artifacts/adventurer',
+];
+
+async function getData(url) {
+  try {
+    const response = await fetch(url);
+    if (response.status !== 200) {
+      throw new Error(response.statusText);
+    }
+
+    const data = await response.json();
+
+    document
+      .querySelector("#container")
+      .insertAdjacentHTML('beforeend', `
+        <div class="gallery">
+          <h2>${data.name}</h2>
+          <h3>Max Rarity: ${data.max_rarity} Star</h3>
+          <h3>2-Piece Set: ${data['2-piece_bonus']}</h3>
+          <h3>4-Piece Set: ${data['4-piece_bonus']}</h3>
+          <img id="icon" src="${url}/flower-of-life"/>
+          <img src="${url}/plume-of-death"/>
+          <img src="${url}/sands-of-eon"/>
+          <img src="${url}/goblet-of-eonothem"/>
+          <img src="${url}/circlet-of-logos"/>
+        </div>`
+      );
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// Loop through each URL in the array
+for (const url of URLs) {
+  getData(url);
+}
+
 
 /* :(
 function clear(){
