@@ -36,10 +36,7 @@ const URL = [
   'https://api.genshin.dev/artifacts/crimson-witch-of-flames',
   'https://api.genshin.dev/artifacts/deepwood-memories',
   'https://api.genshin.dev/artifacts/defender-s-will',
-  'https://api.genshin.dev/artifacts/desert-pavilion-chronicle',
-  'https://api.genshin.dev/artifacts/echoes-of-an-offering',
   'https://api.genshin.dev/artifacts/emblem-of-severed-fate',
-  'https://api.genshin.dev/artifacts/flower-of-paradise-lost',
   'https://api.genshin.dev/artifacts/gambler',
   'https://api.genshin.dev/artifacts/gilded-dreams',
   'https://api.genshin.dev/artifacts/gladiator-s-finale',
@@ -51,7 +48,6 @@ const URL = [
   'https://api.genshin.dev/artifacts/maiden-beloved',
   'https://api.genshin.dev/artifacts/martial-artist',
   'https://api.genshin.dev/artifacts/noblesse-oblige',
-  'https://api.genshin.dev/artifacts/nymph-s-dream',
   'https://api.genshin.dev/artifacts/ocean-hued-clam',
   'https://api.genshin.dev/artifacts/pale-flame',
   'https://api.genshin.dev/artifacts/resolution-of-sojourner',
@@ -64,9 +60,7 @@ const URL = [
   'https://api.genshin.dev/artifacts/thundersoother',
   'https://api.genshin.dev/artifacts/tiny-miracle',
   'https://api.genshin.dev/artifacts/traveling-doctor',
-  'https://api.genshin.dev/artifacts/vermillion-hereafter',
   'https://api.genshin.dev/artifacts/viridescent-venerer',
-  'https://api.genshin.dev/artifacts/viurukasha-s-glow',
   'https://api.genshin.dev/artifacts/wanderer-s-troupe',
 ];
 
@@ -81,7 +75,7 @@ async function getData(url) {
     document
       .querySelector("#container")
       .insertAdjacentHTML('beforeend', 
-      `<div class="gallery">
+      `<div id="gallery">
           <h2 id="artifactName">${data.name}</h2>
           <img id="icon" src="${url}/flower-of-life"/>
         </div>`
@@ -102,8 +96,9 @@ function clear() {
 DOMselectors.clear.addEventListener('click',
 clear)
 
-function oneSet(name) {
-  const changeName = name.replace(/[' ]/g, '-'); // Replace both single quotes and spaces with hyphens
+function oneSet() {
+  const inputName = DOMselectors.input.value.toLowerCase();
+  const changeName = inputName.replace(/[' ]/g, '-'); // Replace both single quotes and spaces with hyphens
   let URL = `https://api.genshin.dev/artifacts/${changeName}`;
   console.log(URL);
   getData(URL);
@@ -111,18 +106,19 @@ function oneSet(name) {
 
 DOMselectors.submit.addEventListener('click', function() {
   clear()
-  const name = DOMselectors.input.value.toLowerCase()
-  oneSet(name)
+  oneSet()
 }
 )
 
-/* :(
-function clear(){
-  document.querySelectorAll('.gallery').forEach((el) => el.remove())
-}
-
-DOMselectors.img.addEventListener("click", function(){
-  clear()
+/* DOMselectors.theme.addEventListener("click", function() {
+  if (document.body.classList.contains("blue")) {
+    document.body.classList.add("beige")
+    document.body.classList.remove("blue")
+  }
+  else {
+    document.body.classList.add("blue")
+    document.body.classList.remove("beige")
+  } 
 }) */
 
 //shittery
