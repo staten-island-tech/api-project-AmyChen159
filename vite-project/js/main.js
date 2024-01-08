@@ -42,7 +42,6 @@ const URLs = [
   'https://api.genshin.dev/artifacts/flower-of-paradise-lost',
   'https://api.genshin.dev/artifacts/gambler',
   'https://api.genshin.dev/artifacts/gilded-dreams',
-  'https://api.genshin.dev/artifacts/glacier-and-snowfield',
   'https://api.genshin.dev/artifacts/gladiator-s-finale',
   'https://api.genshin.dev/artifacts/heart-of-depth',
   'https://api.genshin.dev/artifacts/husk-of-opulent-dreams',
@@ -55,11 +54,6 @@ const URLs = [
   'https://api.genshin.dev/artifacts/nymph-s-dream',
   'https://api.genshin.dev/artifacts/ocean-hued-clam',
   'https://api.genshin.dev/artifacts/pale-flame',
-  'https://api.genshin.dev/artifacts/prayers-for-destiny',
-  'https://api.genshin.dev/artifacts/prayers-for-illumination',
-  'https://api.genshin.dev/artifacts/prayers-for-wisdom',
-  'https://api.genshin.dev/artifacts/prayers-to-springtime',
-  'https://api.genshin.dev/artifacts/prayers-to-the-firmament',
   'https://api.genshin.dev/artifacts/resolution-of-sojourner',
   'https://api.genshin.dev/artifacts/retracing-bolide',
   'https://api.genshin.dev/artifacts/scholar',
@@ -88,15 +82,8 @@ async function getData(url) {
       .querySelector("#container")
       .insertAdjacentHTML('beforeend', `
         <div class="gallery">
-          <h2>${data.name}</h2>
-          <h3>Max Rarity: ${data.max_rarity} Star</h3>
-          <h3>2-Piece Set: ${data['2-piece_bonus']}</h3>
-          <h3>4-Piece Set: ${data['4-piece_bonus']}</h3>
+          <h2 id="artifactName">${data.name}</h2>
           <img id="icon" src="${url}/flower-of-life"/>
-          <img src="${url}/plume-of-death"/>
-          <img src="${url}/sands-of-eon"/>
-          <img src="${url}/goblet-of-eonothem"/>
-          <img src="${url}/circlet-of-logos"/>
         </div>`
       );
   } catch (error) {
