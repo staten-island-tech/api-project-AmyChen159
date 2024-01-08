@@ -95,7 +95,7 @@ function clear() {
 
 function oneSet() {
   const inputName = DOMselectors.input.value.toLowerCase();
-  const changeName = inputName.replace(/[' ]/g, '-'); // Replace both single quotes and spaces with hyphens
+  const changeName = inputName.replace(/[' ]/g, '-'); 
   let URL = `https://api.genshin.dev/artifacts/${changeName}`;
   console.log(URL);
   getData(URL);
