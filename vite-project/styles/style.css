@@ -19,12 +19,14 @@ h1 {
   margin: 2%;
   justify-content: space-between;
   background-color: 	#abb8c3;
+  border: 0.5em solid #c5cad6;
 }
 
 #artifactName {
   text-align: center;
+  color: #676878;
 }
 
 #label {
-  color: white;
+  color: #d3d6dd;
 }
