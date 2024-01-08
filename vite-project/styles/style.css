@@ -24,11 +24,11 @@ h1 {
 
 #artifactName {
   text-align: center;
-  color: #676878;
+  color: #52535f;
 }
 
 #label {
-  color: #d3d6dd;
+  color: #e8eaee;
 }
 
 @media screen and (max-width: 1000px) {
