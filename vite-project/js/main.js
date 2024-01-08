@@ -26,7 +26,7 @@ import {DOMselectors} from './dom'
 getData(URL);
 */
 
-const URLs = [
+const URL = [
   'https://api.genshin.dev/artifacts/adventurer',
   'https://api.genshin.dev/artifacts/archaic-petra',
   'https://api.genshin.dev/artifacts/berserker',
@@ -80,8 +80,8 @@ async function getData(url) {
     
     document
       .querySelector("#container")
-      .insertAdjacentHTML('beforeend', `
-        <div class="gallery">
+      .insertAdjacentHTML('beforeend', 
+      `<div class="gallery">
           <h2 id="artifactName">${data.name}</h2>
           <img id="icon" src="${url}/flower-of-life"/>
         </div>`
@@ -91,10 +91,30 @@ async function getData(url) {
   }
 }
 
-for (const url of URLs) {
+for (const url of URL) {
   getData(url);
 }
 
+function clear() {
+  DOMselectors.container.innerHTML = '';
+}
+
+DOMselectors.clear.addEventListener('click',
+clear)
+
+function oneSet(name) {
+  const changeName = name.replace(/[' ]/g, '-'); // Replace both single quotes and spaces with hyphens
+  let URL = `https://api.genshin.dev/artifacts/${changeName}`;
+  console.log(URL);
+  getData(URL);
+}
+
+DOMselectors.submit.addEventListener('click', function() {
+  clear()
+  const name = DOMselectors.input.value.toLowerCase()
+  oneSet(name)
+}
+)
 
 /* :(
 function clear(){
