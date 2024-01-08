@@ -77,7 +77,7 @@ async function getData(url) {
       .insertAdjacentHTML('beforeend', 
       `<div id="gallery">
           <h2 id="artifactName">${data.name}</h2>
-          <img id="icon" src="${url}/flower-of-life"/>
+          <img id="icon" alt="artifact image"src="${url}/flower-of-life"/>
         </div>`
       );
   } catch (error) {
@@ -92,9 +92,6 @@ for (const url of URL) {
 function clear() {
   DOMselectors.container.innerHTML = '';
 }
-
-DOMselectors.clear.addEventListener('click',
-clear)
 
 function oneSet() {
   const inputName = DOMselectors.input.value.toLowerCase();
@@ -120,38 +117,3 @@ DOMselectors.submit.addEventListener('click', function() {
     document.body.classList.remove("beige")
   } 
 }) */
-
-//shittery
-//https://api.genshin.dev/artifacts --> get a list of artifact names 
-//run a foreach(?) for each artifact name into https://api.genshin.dev/artifacts/${artifactname}
-//do that for images and pretty the card
-//add search function 
-
-/* const URL = `https://api.genshin.dev/artifacts`; 
-
- async function getData(){
-    try {
-        const response = await fetch(URL); 
-        if(response.status !=200){
-            throw new Error(response.statusText);
-        }
-        console.log(response);
-        const data = await response.json();
-        console.log(data); 
-    } catch (error) {
-        console.log(error)
-    }
-}
-getData(URL); 
-
-function newURL(URL, artifactName){
-  const seperator = URL.endsWith('/') ? '' : '/';
-} */
-
-/* function newLink(){
-  data.forEach(name => {`https://api.genshin.dev/artifacts/${name.data}`})
-}
-
-newLink(data); */
-
-
