@@ -77,7 +77,7 @@ async function getData(url) {
       .insertAdjacentHTML('beforeend', 
       `<div id="gallery">
           <h2 id="artifactName">${data.name}</h2>
-          <img id="icon" alt="artifact image"src="${url}/flower-of-life"/>
+          <img id="icon" alt="${data.name} image"src="${url}/flower-of-life"/>
         </div>`
       );
   } catch (error) {
